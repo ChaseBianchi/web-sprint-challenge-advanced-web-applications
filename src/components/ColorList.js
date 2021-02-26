@@ -22,7 +22,6 @@ const ColorList = ({ colorList, setColorList }) => {
   };
 
   const deleteColor = color => {
-
   };
 
   return (
