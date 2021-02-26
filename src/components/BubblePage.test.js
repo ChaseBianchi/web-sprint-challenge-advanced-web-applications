@@ -1,14 +1,17 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { getByTestId, render, screen, waitFor, cleanup } from "@testing-library/react";
 import BubblePage from "./BubblePage";
 
+afterEach(cleanup)
+
 test("Renders BubblePage without errors", () => {
-  // Finish this test
+  render(<BubblePage/>)
 });
 
-test("Fetches data and renders the bubbles on mounting", () => {
-  // Finish this test
-});
+// test("Fetches data and renders the bubbles on mounting", async () => {
+//   render(<BubblePage/>);
+//   await waitFor(expect(getByTestId('colorUL')).toBeInTheDocument())
+// });
 
 //Task List
 //1. Setup test for basic rendering of component

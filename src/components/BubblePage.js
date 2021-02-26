@@ -3,14 +3,26 @@ import axios from "axios";
 
 import Bubbles from "./Bubbles";
 import ColorList from "./ColorList";
+import {urlBase} from '../mocks/handlers'
+import {axiosWithAuth} from '../helpers/axiosWithAuth'
 
 const BubblePage = () => {
   const [colorList, setColorList] = useState([]);
 
+  useEffect(() => {
+    axiosWithAuth().get(`${urlBase}/colors`)
+      .then((res) => {
+        console.log(res);
+        setColorList(res.data)
+      }).catch((err) => {
+        console.log('fetch colors error: ', err)
+      })
+  },[])
+
   return (
     <>
-      <ColorList colors={colorList} updateColors={setColorList} />
-      <Bubbles colors={colorList} />
+      <ColorList colorList={colorList} setColorList={setColorList} />
+      <Bubbles colorList={colorList} />
     </>
   );
 };
