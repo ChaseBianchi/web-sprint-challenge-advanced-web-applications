@@ -1,6 +1,6 @@
 import { rest } from "msw";
 
-const token =
+export const token =
   "ahuBHejkJJiMDhmODZhZi0zaeLTQ4ZfeaseOGZgesai1jZWYgrTA07i73Gebhu98";
 
 let colors = [
@@ -90,7 +90,7 @@ function authenticator(req) {
   return (authorization === token);
 }
 
-const urlBase = 'http://localhost:5000/api';
+export const urlBase = 'http://localhost:5000/api';
 
 export const handlers = [
   // Handles a POST /login request
