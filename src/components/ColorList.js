@@ -7,7 +7,7 @@ const initialColor = {
   code: { hex: "" }
 };
 
-const ColorList = ({ colors, updateColors }) => {
+const ColorList = ({ colorList, setColorList }) => {
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
 
@@ -22,13 +22,14 @@ const ColorList = ({ colors, updateColors }) => {
   };
 
   const deleteColor = color => {
+
   };
 
   return (
     <div className="colors-wrap">
       <p>colors</p>
-      <ul>
-        {colors.map(color => (
+      <ul data-testid='colorUL'>
+        {colorList.map(color => (
           <li key={color.color} onClick={() => editColor(color)}>
             <span>
               <span className="delete" onClick={e => {
